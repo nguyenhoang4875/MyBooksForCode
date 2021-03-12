@@ -1,0 +1,137 @@
+Remote connectivity:Safely accessing networked machines
+3.1 The importance of encryption
+3.2 Getting started with OpenSSH
+	Check package that aren’t yet installed using:
+		$ apt search packagename.
+	You can run  $dpkg -s openssh-client or $dpkg -s openssh-server to confirm that
+	you’ve got the right package on your machine
+	If you don’t think you’ll need to log in to your desktop or laptop,
+	then only install openssh-client:
+		# apt install openssh-client
+	You can use systemctl status to find out whether SSH is running on your machine:
+		$ systemctl status ssh
+	Bored with your new toy? systemctl stop will neatly put it away for you:
+		# systemctl stop ssh
+	You can force a process (like SSH) to automatically load on system startup using
+	#systemctl enable ssh , or to not load on startup with #systemctl disable ssh.
+	This code snippet enables SSH:
+		# systemctl enable ssh
+3.3 Logging in to a remote server with SSH
+	Check ip address:
+		$ ip addr
+	Request for confirmation:
+		$ ssh ubuntu@10.0.3.144
+	Assuming you’re running this from your local PC and testing its connectivity with
+	a remote server using IP 10.0.3.144, a successful ping will look like this:
+		$ ping 10.0.3.144
+3.4 Password-free SSH access:
+	OpenSSH configuration files:
+		configuration files can be found in the /etc/ directory hierarchy.
+		In this case, they’re in /etc/ssh/.
+	3.4.1 Generating a new key pair
+		Here’s how all that will go:
+			ubuntu@base:~$ ssh-keygen
+		Go ahead and use ls -l to display a long list of the contents of your .ssh/ directory
+			ubuntu@base:~$ ls -l .ssh
+		Which algorithm should you use?
+			OpenSSH also supports the ECDSA and ED25519 signature algorithms
+			You should no longer assume that DSA is supported by all implementations of
+			OpenSSH. Due to suspicions surrounding its origins, DSA is widely avoided in any
+			case.
+	3.4.2 Copying the public key over a network
+		Instead, you can append your command to the regular ssh syntax like this:
+			ubuntu@base:~$ ssh ubuntu@10.0.3.142 mkdir -p .ssh
+		That’s guaranteed to cause you grief:
+			ubuntu@base:~$ cat .ssh/id_rsa.pub \
+						| ssh ubuntu@10.0.3.142 \
+						"cat >> .ssh/authorized_keys"
+						ubuntu@10.0.3.142's password:
+		This time, when you run the same old ssh command,
+		there’s no need to enter a password:
+			ubuntu@base:~$ ssh ubuntu@10.0.3.142
+	3.4.3 Working with multiple encryption keys
+	To tell OpenSSH which key you’re after, you add the -i flag,
+	followed by the full name and location of the private key file:
+		ssh -i .ssh/mykey.pem ubuntu@10.0.3.142
+3.5 Safely copying files with SCP
+	Example:
+		ubuntu@base:~$ scp .ssh/id_rsa.pub \
+		ubuntu@10.0.3.142:/home/ubuntu/.ssh/authorized_keys
+	I should mention that there’s a third (and official) way to safely copy your key
+	over to a remote host—the purpose-built program called ssh-copy-id:
+		$ ssh-copy-id -i .ssh/id_rsa.pub ubuntu@10.0.3.142
+3.6 Using remote graphic programs over SSH connections
+	If you absolutely must, you can install the desktop packages to upgrade it.
+	On an Ubuntu machine, it would look like this:
+		# apt update
+		# apt install ubuntu-desktop
+	You’ll need to make sure that the X11Forwarding line has the value yes
+		# nano /etc/ssh/sshd_config
+			X11Forwarding yes  or ForwardX11 yes
+	Because you’ve edited the configuration files, you’ll need to restart SSH on both
+	machines to make sure that your changes are live:
+		# systemctl restart ssh
+	And you’re ready to go. To start a session that’s graphic-enabled, add the -X flag to
+	your ssh command:
+		$ ssh -X ubuntu@10.0.3.142
+	You’ll see the regular command prompt, but you’ll now be able to run a command
+	that will launch a graphic program. Try something small. This should work on an
+	Ubuntu system:
+		$ gnome-mines
+3.7 Linux process management
+	3.7.1 Viewing processes with the ps command
+		$ ps
+		$ ps -ef | grep init
+		You want to visualize parent and child shells/processes, you can use the pstree:
+			$ pstree -p
+	3.7.2 Working with systemd
+		$ file /sbin/init
+		/sbin/init: symbolic link to /lib/systemd/systemd
+Summary
+	- Encrypted connections are a critical part of all networked communications,
+	and SSH is pretty much the industry standard.
+	- You can enable password-free SSH access by sharing the public key of a key pair.
+	- The OpenSSH package also allows for secure file copying and remote graphic
+	sessions.
+	- On most modern Linux distributions, processes are managed by systemd
+	through the systemctl tool.
+	- You can pipe data between commands using the | (pipe) character and filter
+	streaming data with grep.
+Key terms
+	- A password is a string of regular characters, while a passphrase can include spaces
+	and punctuation.
+	- RSA is a popular encryption algorithm.
+	- X11 forwarding allows graphic programs to be run over a remote connection.
+	- A Linux process is all the ongoing activity that’s associated with a single running
+	program.
+	- A shell is a terminal environment that provides a command-line interpreter (like
+	Bash) to allow a user to execute commands. When you’re working from a Linux
+	desktop PC or laptop, you’ll generally access a shell by opening a terminal pro-
+	gram (like GNOME Terminal).
+	- A parent shell is an initial environment, from within which new child shells can
+	subsequently be launched and through which programs run. A shell is, for all
+	intents and purposes, also a process.
+Security best practices
+	- Always encrypt remote login sessions running over a public network.
+	- Avoid relying on passwords alone; like people, they’re fallible.
+	- Key-based, passwordless SSH sessions are preferable to simple password logins.
+	- Never transfer files across public networks in plain text.
+Command-line review
+	- dpkg -s openssh-client checks the status of an APT-based software package.
+	- systemctl status ssh checks the status of a system process (systemd).
+	- systemctl start ssh starts a service.
+	- ip addr lists all the network interfaces on a computer.
+	- ssh-keygen generates a new pair of SSH keys.
+	- $ cat .ssh/id_rsa.pub | ssh ubuntu@10.0.3.142 "cat >> .ssh/authorized_keys"
+
+	- copies a local key and pastes it on a remote machine.
+	- ssh-copy-id -i .ssh/id_rsa.pub ubuntu@10.0.3.142 safely copies encryption
+	keys (recommended and standard).
+	- ssh -i .ssh/mykey.pem ubuntu@10.0.3.142 specifies a particular key pair.
+	- scp myfile ubuntu@10.0.3.142:/home/ubuntu/myfile safely copies a local file
+	to a remote computer.
+	- ssh -X ubuntu@10.0.3.142 allows you to log in to a remote host for a graphics-
+	enabled session.
+	- ps -ef | grep init displays all currently running system processes and filters
+	results using the string init .
+	- pstree -p displays all currently running system processes in a visual tree format.	

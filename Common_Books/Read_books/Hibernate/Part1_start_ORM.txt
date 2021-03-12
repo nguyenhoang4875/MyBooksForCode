@@ -1,0 +1,75 @@
+Part 1 Getting started with ORM
+Chapter 01: Understanding object/relational persistence
+1.1 What is persistence?
+	1.1.1 Relational databases
+	1.1.2 Understanding SQL
+	1.1.3 Using SQL in Java
+1.2 The paradigm mismatch
+	1.2.1 The problem of granularity
+	1.2.2 The problem of subtypes
+	1.2.3 The problem of identity
+		Java defines two different notions of sameness:
+			- Instance identity (roughly equivalent to memory location, checked with a == b )
+			- Instance equality, as determined by the implementation of the equals()
+			method (also called equality by value)
+	1.2.4 Problems relating to associations
+	1.2.5 The problem of data navigation
+1.3 ORM and JPA
+	Let’s look at some of the benefits of Hibernate:
+		Productivity—Hibernate
+		Maintainability —Automated
+		Performance—Although
+		Vendor independence
+		
+Chapter 02: Starting a project
+	2.1 Introducing Hibernate
+	2.2 “Hello World” with JPA
+		2.2.1 Configuring a persistence unit
+		2.2.2 Writing a persistent class
+	2.3 Native Hibernate configuration
+	2.4 Summary
+		- You’ve completed your first JPA project.
+		- You wrote a persistent class and its mapping with annotations.
+		- You’ve seen how to configure and bootstrap a persistence unit, and how to
+		create the EntityManagerFactory entry point. Then you called the Entity-
+		Manager to interact with the database, storing and loading instances of your per-
+		sistent domain model class.
+		- We discussed some of the more advanced native Hibernate bootstrap and
+		configuration options, as well as the equivalent basic Hibernate API s, Session-
+		Factory and Session.
+		
+Chapter 03: Domain models and metadata
+	3.1 The example CaveatEmptor application
+		3.1.1 A layered architecture
+			Presentation layer
+			Business layer
+			Persistence layer
+			Helper and utility classes
+		3.1.2 Analyzing the business domain
+		3.1.3 The CaveatEmptor domain model
+	3.2 Implementing the domain model
+		3.2.1 Addressing leakage of concerns
+		3.2.2 Transparent and automated persistence
+			POJO is the acronym for Plain Old Java Objects. Martin Fowler, Rebecca Parsons, and
+			Josh Mackenzie coined this term in 2000.
+		3.2.3 Writing persistence-capable classes
+		3.2.4 Implementing POJO associations
+	3.3 Domain model metadata 
+		3.3.1 Annotation-based metadata
+			Using  vendor extensions 
+		3.3.2 Applying Bean Validation rules
+		3.3.3 Externalizing metadata with XML files
+		3.3.4 Accessing metadata at runtime
+	3.4 Summary
+		 You’ve implemented persistent classes free of any crosscutting concerns like
+		logging, authorization, and transaction demarcation; your persistent classes
+		only depend on JPA at compile time. Even persistence-related concerns should
+		not leak into the domain model implementation.
+		 Transparent persistence is important if you want to execute and test your busi-
+		ness objects independently and easily.
+		 You’ve learned the best practices and requirements for the POJO and JPA entity
+		programming model, and what concepts they have in common with the old Jav-
+		aBean specification.
+		 You’re ready to write more complex mappings, possibly with a combination of
+		JDK annotations or JPA /Hibernate XML mapping files.
+

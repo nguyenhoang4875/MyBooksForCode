@@ -1,0 +1,61 @@
+1.1 What makes Linux different from other operating systems
+	free
+	powerful
+	multi
+	open source
+	Some of the many available Linux distros:
+	Security/anti-hacking: Kali Linux, Parrot, 
+	Consumer desktop: Mint, Elementary OS
+	Lightweight (old hardware; diagnostics): Puppy Linux, LXLE
+	Internet of Things administration: Snappy Ubuntu Core
+	Enterprise server room: CentOS (community version of Red Hat Enterprise Linux), OpenSUSE (community version of SUSE)
+	Cloud computing: Ubuntu Server (AWS AMI), Amazon Linux (AWS AMI)
+	All-purpose (except lightweight): Ubuntu
+1.2 Basic survival skills
+	Installing Linux
+	1.2.1 The Linux file system
+
+		etc/ Program configuration files	
+		var/ Frequently changing content
+		home/ User account files
+		sbin/ System binary files
+		bin/ User binary files
+		lib/ Shard libraries
+		urs/ Third-party binaries
+	1.2.2 Getting around: Linux navigation tools
+		Five most basic command:
+			ls ( LIST )
+			pwd ( PRESENT WORK DIRECTORY )
+			cd ( CHANGE DIRECTORY )
+			less ( DISPLAY FILE CONTENTS )
+	1.2.3 Getting things done: Linux file management tools
+		touch: create file.
+		Detail file : stat fille_name.
+		Create directory: mkdir dir_name.
+		Remove directory: rmdir dir_name ( when directory empty)
+								rmdir -f dir_name ( when directory not empty absolutely want delete)
+		Copy and moving file: cp file1 newdir
+									   mv file2 newdir
+		To move all the contents of the current directory to some other location,
+		you might do something like this:	 mv * /some/other/directory/
+		If you had files named file1, file2...file15 and wanted to moveonly those between file1 and file9, 
+		you’d use the question mark ( ? ) instead of the asterisk:	 mv file? /some/other/directory/
+		Deleting file: rm file1 || $ rm file* || $ rm -r * (root) 
+	1.2.4 Keyboard tricks
+		Cutting and pasting:
+			Ctrl-c (copy) and Ctrl-v (paste)
+			Bash shell session, but Shift-Ctrl-c and Shift-Ctrl-v
+		Tab completion: 
+			Tab show hint.
+	1.2.5 Pseudo file systems
+		For instance, you might be curious to know how much total space you’ve got on
+		 $ cd /sys/block
+	1.2.6 Showing ’em who’s boss: sudo
+		By default, the user created during the initial Linux installation will have sudo powers.
+1.3 Getting help
+		
+		
+
+
+
+

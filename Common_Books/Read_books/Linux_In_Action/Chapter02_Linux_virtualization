@@ -1,0 +1,110 @@
+Linux virtualization:
+Building a Linux working environment
+2.1 What is virtualization?
+	Hypervisors
+	Containers
+	Design considerations
+2.2 Working with VirtualBox
+	2.2.1 Working with Linux package managers
+	The manager (APT),which comes installed with Linux by default, has a number of jobs:
+		- Maintains a local index to track repositories and their contents
+		- Tracks the status of all the software that’s installed on your local machine
+		- Ensures that all available updates are applied to installed software
+		- Ensures that software dependencies (other software packages or configuration
+		parameters required by the package you’re installing) are met for new applica-
+		tions before they’re installed
+		- Handles installing and removing software packages
+	WORKING WITH THE DEBIAN PACKAGE MANAGER
+		Once you download the file, you can install it from the command line using dpkg .
+		Use the -i flag (for install)
+			$ cd /home/<username>/Downloads
+			# dpkg -i skypeforlinux-64.deb
+		You can check for yourself by running arch from the command line
+	INSTALLING VIRTUAL BOX FOR THE RPM PACKAGE MANAGER
+		Steps to install VirtualBox on Fedora
+			Add repo wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+			Update index dnf update
+			Install dependencies dnf install patch kernel-devel dkms
+			Install package dnf install VirtualBox-5.1
+			$ cd /etc/yum.repos.d/
+			# wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+	Installing software on Linux
+	
+	2.2.2 Defining a virtual machine (VM)
+	
+	2.2.3 Installing an operating system (OS)
+		1. Download a file (in ISO format) containing the image of the Linux distribution
+		you want to use.
+		2. Boot the new VM using a virtual DVD drive containing the ISO you downloaded.
+		3. Work through the standard OS installation process.
+		4. Boot the VM and launch the OS you installed previously
+	2.2.4 Cloning and sharing a VirtualBox VM
+		CLONING VMs FOR QUICK STARTS
+		MANAGING VMs FROM THE COMMAND LINE
+2.3 Working with Linux containers (LXC)
+	2.3.1 Getting started with LXC
+	2.3.2 Creating your first container
+		You’ll want to change that password right away:
+			$ passwd
+			Changing password for ubuntu.
+			(current) UNIX password:
+			Enter new UNIX password:
+			Retype new UNIX password:
+			passwd: password updated successfully
+		Show ip:
+			root@myContainer:/# ip addr
+Summary
+	- Hypervisors like VirtualBox provide an environment where virtual operating
+	systems can safely access hardware resources, whereas lightweight containers
+	share their host’s software kernel.
+	- Linux package managers like APT and RPM (Yum) oversee the installation and
+	administration of software from curated online repositories using a regularly
+	updated index that mirrors the state of the remote repository.
+	- Getting a VM going in VirtualBox requires defining its virtual hardware envi-
+	ronment, downloading an OS image, and installing the OS on your VM.
+	- You can easily clone, share, and administer VirtualBox VMs from the command
+	line.
+	- LXC containers are built on predefined, distribution-based templates.
+	- LXC data is stored within the host file system, making it easy to administer
+	containers.
+Key terms
+	- Virtualization is the logical sharing of compute, storage, and networking
+	resources among multiple processes, allowing each to run as if it was a stand-
+	alone physical computer.
+	- A hypervisor is software running on a host machine that exposes system
+	resources to a guest layer, allowing the launching and administration of full-
+	stack guest VMs.
+	- A container is a VM that, instead of full-stack, lives on top of (and shares) the
+	host machine’s core OS kernel. Containers are extremely easy to launch and
+	kill, according to short-term need.
+	- A dynamically allocated virtual drive in VirtualBox takes up only as much space on
+	your physical drives as the VM actually uses. A fixed-size disk, by contrast, takes
+	up the maximum space no matter how much data is there.
+	- A software repository is a location where digital resources can be stored. Reposi-
+	tories are particularly useful for collaboration and distribution of software
+	packages.
+Security best practices
+	- Allowing an official package manager to install and maintain the software on
+	your Linux system is preferred over doing it manually. Online repositories are
+	much more secure, and downloading is properly encrypted.
+	- Always scan the checksum hashes of downloaded files against the correct hash
+	strings, not only because packages can be corrupted during download, but
+	because they can also sometimes be switched by man-in-the-middle attackers.
+Command-line review
+	- apt install virtualbox uses APT to install a software package from a remote
+	repository.
+	- dpkg -i skypeforlinux-64.deb directly installs a downloaded Debian package
+	on a Ubuntu machine.
+	- wget https://example.com/document-to-download uses the wget command-
+	line program to download a file.
+	- dnf update , yum update , or apt update syncs the local software index with
+	what’s available from online repositories.
+	- shasum ubuntu-16.04.2-server-amd64.iso calculates the checksum for a
+	downloaded file to confirm that it matches the provided value. This means that
+	the contents haven’t been corrupted in transit.
+	- vboxmanage clonevm Kali-Linux-template --name newkali uses the vboxman-
+	age tool to clone an existing VM.
+	- lxc-start -d -n myContainer starts an existing LXC container.
+	- ip addr displays information on each of a system’s network interfaces (includ-
+	ing their IP addresses).
+	- exit leaves a shell session without shutting down the machine.

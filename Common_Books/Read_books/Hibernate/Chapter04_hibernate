@@ -1,0 +1,35 @@
+Part 2: Mapping strategies
+Chapter04: Mapping persistent classes
+4.1 Understanding entities and value types
+	4.1.1 Fine-grained domain models	
+	4.1.2 Defining application concepts
+	4.1.3 Distinguishing entities and value types
+		Shared references
+		Life cycle dependencies
+		Identity—Entity
+4.2 Mapping entities with identity
+	4.2.1 Understanding Java identity and equality
+		Object identity.
+		Object equality.
+		Atabase identity.
+	4.2.2 A first entity class and mapping
+	4.2.3 Selecting a primary key
+	4.2.4 Configuring key generators
+		GenerationType.AUTO
+		GenerationType.SEQUENCE
+		GenerationType.IDENTITY
+		GenerationType.TABLE
+	4.2.5 Identifier generator strategies
+		native
+		sequence
+		sequence-identity
+		enhanced-sequence
+		seqhilo
+		hilo
+		enhanced-table
+		identity
+		increment
+		select
+		uuid2
+		guid
+4.3 Entity-mapping options
