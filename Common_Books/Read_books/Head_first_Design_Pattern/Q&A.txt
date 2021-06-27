@@ -1,0 +1,4 @@
+Observer pattern vs AIDL
+Proxy pattern with AIDL
+
+How to management a big project android

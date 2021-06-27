@@ -1,0 +1,101 @@
+                                    Chapter 05: The Singleton Pattern
+                                        One of a Kind Objects
+Dissecting the classic Singleton Pattern implementation
+The Chocolate Factory
+Singleton Pattern defined
+    Now that you’ve got the classic implementation of Singleton in your head, it’s time to sit back, enjoy a bar of chocolate,
+    and check out the finer points of the Singleton Pattern. Let’s start with the concise definition of the pattern:
+    The Singleton Pattern ensures a class has only one instance, and provides a global point of access to it.
+
+Threads are a problem
+    It looks like the Chocolate Boiler has let us down; despite the fact we improved the code using the classic Singleton
+    Pattern, somehow the Chocolate Boiler’s fill() method was able to start filling the boiler even though a batch of milk
+    and chocolate was already boiling! That’s 500 gallons of spilled milk (and chocolate)! What happened!?
+
+Dealing with multithreading
+Our multithreading woes are almost trivially fixed by making getInstance() a synchronized method:
+    public static synchronized Singleton getInstance(){...};
+
+Can we improve multithreading?
+1. Do nothing if the performance of getInstance() isn’t critical to your application
+
+        private static Singleton uniqueInstance;
+        // other useful instance variables here
+        private Singleton() {}
+        public static synchronized Singleton getInstance() {
+            if (uniqueInstance == null) {
+                uniqueInstance = new Singleton();
+            }
+            return uniqueInstance;
+
+        }
+
+A straightforward technique that is guaranteed to work. We don’t seem to have
+any performance concerns with the chocolate boiler, so this would be a good choice.
+
+2. Move to an eagerly created instance rather than a lazily created one.
+
+        private static Singleton uniqueInstance = new Singleton();
+        private Singleton() {}
+        public static Singleton getInstance() {
+            return uniqueInstance;
+        }
+
+We are always going to instantiate the chocolate boiler in our code, so statically initializing
+the instance would cause no concerns. This solution would work as well as the synchronized
+method, although perhaps be less obvious to a developer familar with the standard pattern.
+
+3. Use “double-checked locking” to reduce the use of synchronization in getInstance().
+
+  		private volatile static Singleton uniqueInstance;
+        private Singleton() {}
+        public static Singleton getInstance() {
+            if (uniqueInstance == null) {
+                synchronized (Singleton.class) {
+                    if (uniqueInstance == null) {
+                        uniqueInstance = new Singleton();
+                    }
+                }
+            }
+		return uniqueInstance;
+
+Given we have no performance concerns, double-checked locking seems like overkill. In
+addition, we’d have to ensure that we are running at least Java 5.
+	
+private volatile static Singleton uniqueInstance;
+The volatile keyword ensures that multiple threads handle the uniqueInstance variable correctly when it
+is being initialized to the Singleton instance.
+
+Double-checked locking doesn't work in Java 1.4 or earlier!
+
+Meanwhile, back at the Chocolate Factory...
+
+Tools for your Design Toolbox
+    You’ve now added another pattern to your toolbox. Singleton gives you another method of creating
+    objects—in this case, unique objects.
+
+OO Principles:
+    Encapsulate what varies.
+    Favor composition over inheritance
+    Program to interface, not implementations.
+    Strive for loosely coupled designs between objects that interact.
+    Classes should be open for extension but closed for modification
+    Depend on abstractions. Do not depend ao concrete classes.
+
+OO Pattern:
+ Ensure a class only has one instance and provide a global point of access to it.
+
+BULLET POINTS
+    The Singleton Pattern ensures you have at most one instance of a class in your application
+    The Singleton Pattern also provides a global access point to that instance.
+    Java's implementation of Singleton Pattern makes use of a private constructor, a static method combined with a static variable.
+    Examine your performance and resource contraints and carefully choose an appropriate Singleton implementation for multithreaded
+    application (and we should consider all applications multithreaded!).
+    Beware of the double-checked locking implementation; it isn't thread safe in versions before Java 5.
+    Be careful if you are using multiple class loaders; this could defeat the Singleton implementation and result in multiple instances.
+    You can use Java's enums to simplify your Singleton implementation
+
+
+
+
+

@@ -1,0 +1,109 @@
+
+                                    Chapter 11: The Proxy Pattern
+                                      Controlling Object Access 
+Coding the Monitor
+Testing the Monitor
+The role of the ‘remote proxy’
+Adding a remote proxy to the Gumball Machine monitoring code
+  1. First, we’re going to take the RMI Detour and explore RMI. Even if you are
+  familiar with RMI, you might want to follow along and check out the scenery.
+  2. Then we’re going to take our Gumball Machine and make it a remote service
+  that provides a set of methods calls that can be invoked remotely.
+  3. Finally, we going to create a proxy that can talk to a remote Gumball Machine, again using RMI, and put the monitoring
+  system back together so that the CEO can monitor any number of remote machines.
+
+Remote methods 101
+Walking through the design
+How the method call happens
+Making the Remote service
+  Step one: Make a Remote Interface
+  Step two: Make a Remote Implementation
+  Step three: Start the RMI registry (rmiregistry)
+  Step four: Start the remote service
+
+Complete code for the server side
+Complete code for the client side
+
+Back to our GumballMachine remote proxy
+Getting the GumballMachine ready to be a remote service
+
+The transient keyword tells the JVM not to serialize this field. Note that this can be slightly dangerous if you
+  try to access this field once the object's been serialized and transferred.
+
+Registering with the RMI registry...
+Now for the GumballMonitor client...
+Writing the Monitor test drive
+Another demo for the CEO of Mighty Gumball...
+
+The Proxy Pattern defined
+The Proxy Pattern provides a surrogate or placeholder for another object to control access to it.
+
+Use the Proxy Pattern to create a representative object that controls access to another objects,
+which may be remote, expensive to create, or in need of securing.
+
+Get ready for the Virtual Proxy
+Displaying Album covers
+Designing the Album Cover Virtual Proxy
+
+Testing the Album Cover Viewer
+
+Fireside: tonight's talk: Proxy and Decorator get intentional
+Using the Java API’s Proxy to create a protection proxy
+
+Geeky Matchmaking in Objectville
+Big Picture: creating a Dynamic Proxy for the Person
+
+Pattern              Description
+Decorator    Wraps another object and provides additional behavior for it
+Facade       Wraps a bunch of object to simplify their interface
+Proxy        Wraps another object to control access to it
+Adapter      Wraps another object and provides a different interface to it
+
+The Proxy Zoo
+  Firewall Proxy: controls access to a set of network resources, protecting the subject from "bad" client
+  Smart Reference Proxy: provides additional actions whenever a subject is referenced,
+   such as counting the number of references to an object
+  Caching Proxy provides temporary storage for results of operations that are expensive.
+   It can also alow multiple clients to share the results to reduce computation or network latency.
+  Synchronization Proxy: provides safe access to a subject from multiple threads.
+   Complexity Hiding Proxy: hides the complexity of and controls access to a complex set of classes.
+   This is sometimes called the Facade Proxy for obvious reasons. 
+  The Complexity Hiding Proxy differs from the Facade Pattern in that the proxy controls access,
+   while the Facade Pattern just provides an alternative interface.
+  Copy-On_Write Proxy: controls the copying of an object by deferring the copying of an object until it is required by a client. 
+   This a variant of the Virtual Proxy.
+
+Tools for your design Toolbox
+OO Principle
+	Encapsulate what varies.
+	Favor composition over inheritance.
+	Program to interfaces, not implementations
+	Strive for loosely coupled designs between object that interact.
+	Classes should be open for extension but closed for modification.
+	Depend on abstractions. Do not depend on concrete classes.
+	Only talk to your friends.
+	Don't call us, we'll call you.
+	A class should have only one reason to change.
+
+OO Pattern
+	Proxy provide a surrogate or placeholder for another object to control access to it.
+
+Bullet points
+	The Proxy Pattern provides a representative for another object in order to control the client's access to it. 
+	 There are a number of ways it can manage that access.
+	A Remote Proxy manages interaction between a client and a remote object.
+	A Virtual Proxy controls access to an object that is expensive to instantiate.
+	A Protection Proxy controls access to the methods of an object based on the caller.
+	Many other variants of the Proxy Pattern exist including caching proxies, Synchronization proxies,
+	 firewall proxies, copy-on-write proxies, and so on
+	Proxy is structurally similar to Decorator, but the two patterns differ in their purpose.
+	The Decorator Pattern adds behavior to an object, while Proxy controls access.
+	Java's built-in support for Proxy can build a dynamic proxy class on demand and dispatch all calls on it
+	 to a handler all calls it to a handler of your choosing
+	Like any wrapper, proxies will increase the number of classes and objects in your designs.
+	
+
+
+
+
+

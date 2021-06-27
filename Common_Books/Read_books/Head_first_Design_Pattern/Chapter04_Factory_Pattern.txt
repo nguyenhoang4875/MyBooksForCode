@@ -1,0 +1,124 @@
+                                    Chapter 04: The Factory Pattern
+                                        Banking with OO Goodnes
+When you see “new,” think “concrete.”
+What’s wrong with “new”?
+    Remember, our first principle deals with change and guides us 
+     to identify the aspects that vary and separate them from what stays the same.
+
+Identifying the aspects that vary
+But you need more than one type of pizza...
+But the pressure is on to add more pizza types
+
+Encapsulating object creation
+
+Building a simple pizza factory
+
+A framework for the pizza store
+Allowing the subclasses to decide
+
+Let’s make a Pizza Store
+
+View Creators and Products in Parallel
+
+Factory Method Pattern defined
+It’s time to roll out the official definition of the Factory Method:
+    The Factory Method Pattern defines an interface
+    for creating an object, but lets subclasses decide which
+    class to instantiate. Factory Method lets a class defer
+    instantiation to subclasses.
+
+The Dependency Inversion Principle
+Design Principle:
+    Depend upon abstractions. Do not depend upon concrete classes.
+
+Applying the Principle
+
+A few guidelines to help you follow the Principle...:
+The following guidelines can help you avoid OO designs that violate the Dependency Inversion Principle:
+    No variable should hold a reference to a concrete class.
+    No class should derive from a concrete class.
+    No method should override an implemented method of any of its base classes.
+
+Meanwhile, back at the Pizza Store...
+
+Building the ingredient factories
+With that interface, here’s what we’re going to do:
+    Build a factory for each region. To do this, you’ll create a subclass of PizzaIngredientFactory that implements each create method.
+    Implement a set of ingredient classes to be used with the factory, like
+    ReggianoCheese, RedPeppers, and ThickCrustDough. These classes can be
+    shared among regions where appropriate.
+    Then we still need to hook all this up by working our new ingredient factories into our old PizzaStore code.
+
+Building the New York ingredient factory
+Reworking the pizzas...
+Revisiting our pizza stores
+
+Brain power:
+    Compare this version of the createPizza() method to the one in the Factory Method implementation earlier in the chapter.
+
+More pizza for Ethan and Joel...
+    Ethan and Joel can’t ge t enough Object ville Pizza! What they don’t know is that now their orders are making use of
+    the ne w ingredient factories. So now when they order...
+
+The first part of the order process hasn’t changed at all.
+Let’s follow Ethan’s order again
+    First we need a NYPizzaStore: PizzaStore nyPizzaStore = new NYPizzaStore();
+    ow that we have a store, we can take an order:  nyPizzaStore.orderPizza("cheese");
+    The orderPizza() method first calls the createPizza() method: Pizza pizza = createPizza("cheese");
+
+From here things change, because we are using an ingredient Factory
+    When the createPizza() method is called, that’s when our ingredient factory gets involved:Pizza pizza = new CheesePizza(nyIngredientFactory); 
+    Next we need to prepare the pizza. Once the prepare() method is called, the factory is asked to
+    prepare ingredients:
+    Finally, we have the prepared pizza in hand and the orderPizza() method bakes, cuts, and boxes the pizza.
+
+Abstract Factory Pattern defined
+    The Abstract Factory Pattern provides an interface for creating families of related or dependent objects
+    without specifying their concrete classes.
+
+Factory Method: Sure. Both Abstract Factory and I create objects—that’s our job. But I do it through INHERITANCE...
+Abstract Factory: ...and I do it through object COMPOSITION.
+
+Abstract Factory: Thanks. Remember me, Abstract Factory, and use me whenever you have families of products you need to create and you want to make sure your clients create products that belong together
+
+Factory Method: And I’m Factory Method; use me to decouple your client code from the concrete classes you
+need to instantiate, or if you don’t know ahead of time all the concrete classes you are going to need. To use me, just
+subclass me and implement my factory method!
+
+
+Tools for your Design Toolbox
+    In this chapter, we added two more tools to your toolbox: Factory Method and Abstract Factory. Both patterns
+    encapsulate object creation and allow you to decouple your code from concrete type
+
+OO Principles
+    Encapsulate what varies
+    Favor composition over inheritance.
+    Program to interface, not implementations
+    Strive for loosely coupled designs between objects that interact
+    Classes shuld be open for extension but closed for modification.
+    Depen on abstractions. Do not depend on concrete classes.
+
+Abstract Factory: 
+    Provides an interface for creating falimies of related or dependent object without specifying their concrete classes.
+
+Fatory Method:
+    Defines an interface for creating an object, but let subclasses decide which class to ionstantiate. Factory Method lets a class defer instantiation to the subclasses.
+
+BULLET POINTS: 
+    All factories encapsulate object creation.
+    Simple Factory, while not a bona fide design pattern, is a simple way to decouple your clients from concrete classes.
+    Factory Method relies on inheritance: object creation is delegated to subclasses, which implement the factory method to create objects.
+    Abstract Factory relies on object composition: object creation is implemented in methods exposed in the factory interface.
+    All factory patterns promote loose coupling by reducing the dependency of your application on concrete classes
+    The intent of Factory Method is to allow a class to defer instantiation to its subclasses.
+    The intent of Abstract Factory is to create families of related objects without having to depend on their concrete classes.
+    The Dependency Inversion Principle guides us to avoid dependencies on concrete types and to strive for abstractions.
+    Factories are a powerful technique for coding to abstractions, not concrete classes
+
+
+
+
+
+
+
+

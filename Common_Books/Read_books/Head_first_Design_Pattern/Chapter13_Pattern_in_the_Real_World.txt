@@ -1,0 +1,177 @@
+
+                                    Chapter 13: Better living with patterns
+                                          Patterns in the Real World
+The Ojbectville Guide to Better Living with Design Patterns
+In this guide you will:
+  Learn the all too common misconceptions about the definition of a "Design Pattern."
+  Discover those nifty Design Pattern catalogs and why you just have to get one.
+  Avoid the embarrassment of using a Design Pattern at the wrong time.
+  Learn how to keep patterns in classifications where they belong.
+  See that discovering patterns isn't just for the gurus; read our quick How To and become a patterns writer too.
+  Be there when the true identity of the mysterious Gang of Tour is revealed.
+  Keep up with the neighbors-the coffee table books any patterns user must own.
+  Learn to train your mind like a Len master.
+  Win friends and influence developers by improving your patterns vocabulary.
+
+Define Pattern defined.
+A Pattern is a solution to a problem in a context.
+  The CONTEXT is the situation in which the pattern applies. This should be a recurring situation.
+  The PROBLEM refers to the global are trying to achieve in this context, but it also refers to any constraints that occur in the context.
+  The SOLUTION is what you're after: a general design that anyone can apply that resolves the goal and set of constraints.
+
+Looking more closely at the Design Pattern definition
+
+  Name: All patterns in catalog start with a name. The name is a vital part of a pattern-without a good name,
+  a pattern can't become part of the vocabulary that you share with other developers.
+  Classification: This is the pattern's classification or category.
+  Intent: describes what the pattern does in a short statement. You can also think of this as the pattern's definition 
+  Motivation: gives you a concrete scenario that describes the problem and how the solution solves the problem.
+  Applicability: describes situations in which the pattern can be applied.
+  Structure: provides a diagram illustrating the relationships among the classes that participate in the pattern.
+  Participant: The participant are the classes and objects in the design. This section describes their responsibilities and roles in the pattern.
+  Collaboration: tells us how the participants work together in the pattern.
+  Consequences: The consequences describe the effects that using this pattern may have: good and bad.
+  Implementation / Sample code: Implementation provides techniques you need to use when implementing this pattern, and issues you should watch out for.
+  Sample code provides code fragments that might help with your Implementation.
+  Known Uses: Known Users describes examples of this pattern found in real systems.
+  Related Pattern: describes the relationship between this pattern and others.
+
+So you wanna be a Design Patterns writer
+  Do your homework
+  Take time to reflect, evaluate
+  Get your ideas down on paper in a way others can understand.
+  Have others try your patterns; then refine and refine some more.
+  Don't forget the Rule of Three.
+
+Pattern              Description
+Decorator        Wrap an object to provide new behavior.
+State            Encapsulates state-based behaviors and uses delegation to switch between behaviors.
+Iterator         Provides a way to traverse a collection of objects without exposing its implementation
+Facade           Simplifies the interface of a set of classes.
+Strategy         Encapsulates interchangeable behaviors and uses delegation to decide which one to use.
+Proxy            Wraps an object to control access to it.
+Factory Method   Subclasses decide which concrete classes to create.
+Adapter          Wrap an object and provides a different interface to it.
+Observer         Allows objects to be notified when state changes.
+Template Method  Subclasses decide how to implement steps in an algorithms 
+Composite        Client treat collections of objects and individual objects uniformly.
+Singleton        Ensures one and only one object is created.
+Abstract Factory Allows a client to create families of objects without specifying their concrete classes. 
+Command          Encapsulates a request as an object. 
+
+Organizing Design Patterns
+Pattern Categories
+Creational Patterns involve object instantiation and all provide a way to decouple  a client from the objects it needs to instantiate
+Ex: Abstract Factory, Builder, Factory Method, Prototype, Singleton (5)
+
+Any pattern that is a Behavioral Pattern is concerned with how classes and object interact and distribute responsibility.
+Ex:  Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observe, State, Strategy, Template Method,  Visitor (11)
+
+Structural Pattern let you compose classes or objects into large structures
+Ex: Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy (7)
+
+Patterns are often classified by a second attribute: whether or not the pattern deals with classes or objects:
+Class Patterns: describe how relationships between classes are defined via inheritance.
+ Relationships in class patterns are established at compile time.
+Ex: Template Method, Adapter, Factory Method, Interpreter.
+
+Object Patterns: Describe relationships between objects and are primarily defined by composition.
+ Relationships in object are typically created at runtime and more dynamic and flexible.
+Ex: Composite, Visitor, Decorator, Iterator, Proxy, Facade, Command, Memento, Strategy, Observer, Chain of Responsibility,
+    Bridge, Mediator, Flyweight, Prototype, State, Abstraction, Builder, Singleton
+  
+Thinking in Patterns
+  Keep it simple (KISS)
+  Design Patterns aren’t a magic bullet; in fact, they’re not even a bullet!
+  You know you need a pattern when...
+  Refactoring time is Patterns time!
+  Take out what you don’t really need. Don’t be afraid to remove a Design Pattern from your design.
+  If you don’t need it now, don’t do it now.
+
+Your Mind on Patterns
+  The Beginner uses patterns everywhere.
+  As learning progresses, the Intermediate mind starts to see where patterns are needed and where they aren't.
+  The Zen mind is able to see patterns where they fit naturally.
+
+WARNING: Overuse of design patterns can lead to code that is downright overengineered. Always go with the simplest solution
+ that does the job and introduce patterns where the need emerges.
+
+Don’t forget the power of the shared vocabulary
+  Don’t underestimate the power of a shared vocabulary, it’s one of the biggest benefits of Design Patterns
+
+Top five ways to share your vocabulary:
+  1. In design meetings
+  2. With other developers
+  3. In architecture documentation
+  4. In code comments and naming conventions
+
+Cruisin Objectville with the Gang of Four
+
+Your journey has just begun...
+  The definitive Design Patterns text: Design Pattern Elements of Reusable Object-Oriented Software
+  The definitive Pattern texts:
+    The Timeless Way of Building (Chrisstopler Alexander)
+    A Pattern Language Towns-Building-Construction
+
+Other Design Patterns resources
+  Website:
+    The Portland Patterns Repository: http://wiki.c2.com/?WelcomeVisitors
+    The Hillside Group: https://hillside.net/
+    O’Reilly Online Learning: https://www.oreilly.com/
+  Conferences and Workshops
+    The Hillside site maintains a complete list
+    Pattern Languages of Programs (PLoP)
+    ACM Conference on Object-Oriented Systems
+    Languages and Applications (OOPSLA)
+    SPLASH
+
+Other Resources
+  Google, Stack Overflow, Quora
+
+The Patterns Zoo
+  Architectural Patterns are used to create the living, vibrant architecture of buildings, towns, and cities.
+    This is where patterns got their start.
+  Application Patterns are patterns for creating system-level architecture.
+    Many multitier architectures fall into this category.
+    (Field note: MVC has been known to pass for an application pattern)
+  Domain-Specific Patterns are patterns that concern problems in specific domains, like concurrent systems or real-time systems.
+  Business Process Patterns describe the interaction between businesses, customers, and data,
+    and can be applied to problems such as how to effectively make and communicate decisions.
+  Organizational Patterns describe the structures and practices of human organizations.
+    Most efforts to date have focused on organizations that produce and/or support software.
+  User Interface Design Patterns address the problems of how to design interactive software programs.
+    (Field notes; please add your observations of pattern domains here)
+
+Annihilating evil with Anti-Patterns
+  An Anti-Pattern tells you how to go from a problem to a BAD solution
+  An anti-pattern tells you why a bad solution is attractive.
+  An anti-pattern tells you why that solution in the log term is bad.
+  An anti-pattern suggests other applicable patterns that may provide good solutions.
+
+An anti-pattern always looks like a good solution, but then turns out to be a bad solution when it is applied.
+By documenting anti-patterns we help others to recognize bad solution before implement them.
+Like patterns, there are may types of anti-patterns including development, OO, organizational, and domain-specific anti-patterns.
+Adapted from the Portland Pattern Repository's wiki at: https://wiki.c2.com/?WelcomeVisitors where you'll find many anti-patterns and discussions.
+
+Tools for your Design Toolbox
+OO Principles;
+  Encapsulate what varies.
+  Favor composition over inheritance.
+  Program to interfaces, not implementations.
+  Strive for loosely coupled designs between that interact. 
+  Classes should be open for extension but closed for modification.
+  Depend on abstractions. Do not depend on concrete classes.
+  Only talk to your friends.
+  Don't call us, We'll call you.
+  A class should have only one reason to change.
+
+Bullet Points
+  Let Design Patterns emerge in your designs; don't force them in just for the sake of using a pattern.
+  Design Patterns aren't set in stone; adapt and tweak them to meet your needs.
+  Always use the simplest solution that meet your needs, event if it doesn't include a pattern.
+  Study Design Patterns catalogs to familiarize yourself with patterns and the relationships among them.
+  Pattern classification (or categories) provide grouping for patterns. When they help, use them.
+  You need to be committed to be a patterns writer: it takes time and patience, and you have to be willing to do lots of refinement.
+  Remember, most patterns you encounter will be adaptations of existing patterns, not new patterns.
+  Build your team's shared vocabulary. This is one of the most powerful benefits of using patterns.
+  Like any community, the patterns community has its own ling. Don't let that hold you back. Having read this book, you now know most of it.

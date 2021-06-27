@@ -1,0 +1,78 @@
+
+                                    Chapter 09: The Iterator and Composite Patterns
+                                               Well-Managed Collections
+
+Breaking News: Objectville Diner and Objectville Pancake House Merge
+Implementing the spec: our first attempt
+
+Can we encapsulate the iteration?
+    1. To iterate through the breakfast items, we use the size() and get() methods on the ArrayList:
+    2. And to iterate through the lunch items we use the Array length field and
+    the array subscript notation on the MenuItem Array.
+    3. Now what if we create an object, let’s call it an Iterator, that encapsulates the way we iterate
+     through a collection of objects? Let’s try this on the ArrayList:
+    4. Let’s try that on the Array too:
+
+Meet the Iterator Pattern
+Reworking the DinerMenu with Iterator
+Making some improvements...
+Cleaning things up with java.util.Iterator
+The Iterator Pattern Structure
+Meet Java’s Iterable interface
+Java’s enhanced for loop
+
+Not so fast; Arrays are not Iterables
+Taking a look at the Café Menu  
+Reworking the Café Menu code
+Adding the Cafe ‘ Menu to the Waitress
+Breakfast, lunch, AND dinner
+
+Iterators and Collections
+
+Is the Waitress ready for prime time?
+Just when we thought it was safe...
+The Composite Pattern defined
+Designing Menus with Composite
+Getting ready for a test drive...
+
+Pattern             Description
+Strategy        Encapsulates interchangeable behaviors and uses delegation to decide which one to use
+Adapter         Change the interface of one or more classes
+Iterator        Provides a way to traverse a collection of objects without exposing the collections's implementation
+Facade          Simplifies the interface of a group of classes
+Composite       Clients treat collections of objects and individual objects uniformly
+Observer        Allow a group of object to be notified when some state changes.
+
+Tools for your Design Toolbox
+OO Principles 
+    Encapsulates what varies
+    Favor composition over inheritance
+    Program to interfaces, not implementations.
+    Strive for loosely coupled designs between objects that interact
+    Classes should be open for extension but closed for modification
+    Depend on abstractions. Do not depend on concrete classes
+    Only talk to your friend
+    Don't call us, we'll call you
+    A class should have only reason to change
+
+OO Patterns
+    Iterator Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation
+    Composite - Compose objects into tree structures to represent part-whole hierarchies.
+     Composite lets clients treat individual objects and compositions of objects uniformly
+
+Bullet Points
+    An Iterator allows access to an aggregate's elements without exposing its internal structure.
+    An Iterator takes the job of iterating over an aggregate and encapsulates it in another object.
+    When using Iterator, we relieve the aggregate of the responsibility of supporting operations for traversing its data.
+    An Iterator provides a common interface for traversing the items of an aggregate,
+     allowing you to use polymorphism when writing code that makes use of the items of the aggregate.
+    The Iterable interface provides a means of getting an iterator and enables Java's enchanced for loop.
+    We should strive to assign only one responsibility to each class.
+    The Composite Pattern allows clients to treat composites and individual objects uniformly.
+    A Component is any object in a Composite structure. Components may be other composites or leaves.
+    There are many design tradeoffs iun implementing Composite. You need to balance transparency and safety with your need.
+    
+
+
+
+

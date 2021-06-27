@@ -1,0 +1,85 @@
+                Chapter 01: Intro to Design Pattern (Welcom to Design Pattern)
+                            Strategy Pattern
+It started with a simple SimUDuck app
+But now we need the ducks to FLY
+But something went horribly wrong...
+Joe thinks about inheritance...
+The one constant in software development: CHANGE
+Zeroing in on the problem...
+Here’s another way to think about this principle: take the parts that vary and encapsulate them, so that later you can
+alter or extend the parts that vary without affecting those that don’t.
+Separating what changes from what stays the same
+    We know that fly() and quack() are the parts of the Duck class that vary across ducks.
+    To separate these behaviors from the Duck class, we’ll pull both methods out of the Duck class and create a new set of classes
+     to represent each behavior.
+
+Designing the Duck Behaviors
+    So how are we going to design the set of classes that implement the fly and quack behaviors?
+    From now on, the Duck behaviors will live in a separate class—a class that implements a particular behavior interface.
+    That way, the Duck classes won’t need to know any of the implementation details for their own behaviors.
+
+Implementing the Duck Behaviors
+    With this design, other types of objects can reuse our fly and quack behaviors because
+     these behaviors are no longer hidden away in our Duck classes!
+    And we can add new behaviors without modifying any of our existing behavior
+     classes or touching any of the Duck classes that use flying behaviors.
+
+Integrating the Duck Behaviors
+    Here’s the key: A Duck will now delegate its flying and quacking behaviors, instead of using quacking and
+     flying methods defined in the Duck class (or subclass).
+    First we’ll add two instance variables of type FlyBehavior and QuackBehavior
+    Now we implement performQuack()
+    More integration...
+
+The Big Picture on encapsulated behaviors
+    Okay, now that we’ve done the deep dive on the duck simulator design,
+     it’s time to come back up for air and take a look at the big picture.
+
+HAS-A can be better than IS-A
+    When you put two classes together like this you’re using composition. Instead of inheriting their behavior,
+     the ducks get their behavior by being composed with the right behavior object.
+
+Design Principle:
+    Favor composition over inheritance
+    As you’ve seen, creating systems using composition gives you a lot more flexibility. Not only does it let you encapsulate
+     a family of algorithms into their own set of classes, but it also lets you change behavior at runtime as long as the object you’re com 
+    Composition is used in many design patterns and you’ll see a lot more about its advantages and disadvantages throughout the book.
+
+Speaking of Design Patterns...
+The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.
+Strategy lets the algorithm vary independently from clients that use it.
+
+The power of a shared pattern vocabulary
+    When you communicate using patterns, you are doing more than just sharing LINGO.
+    Shared pattern vocabularies are POWERFUL.
+    Patterns allow you to say more with less.
+    Talking at the pattern level allows you to stay “in the design” longer.
+    Shared vocabularies can turbo-charge your development team.
+    Shared vocabularies encourage more junior developers to get up to speed.
+
+Tools for your Design Toolbox
+    OO Basics:
+        Abstraction
+        Encapsulation
+        Polymorphism
+        Inheritance
+    OO Principles:
+        Encapsulate what varies.
+        Favor composition over inheritance
+        Program to interfaces, not implementations.
+    OO Patterns:
+        Strategy - define a family of algorithms, encapsulates each one, and makes them interchangeable.
+        Strategy lets the algorithm vary independently from client that use it.
+
+Bullet Points:
+    Knowing the OO basics does not make you good OO designer.
+    Good OO design are reusable, extensible, and maintainable.
+    Patterns show you how to build systems with good OO design qualities.
+    Patterns are proven object-oriented experience.
+    Pattern don't give you code, they give you general solutions to design problems. YOu apply them to your specific application.
+    Patterns aren't invented, they are discovered.
+    Most patterns and principles address issues of change in software.
+    Most patterns allow some part of system to vary independently of all other part.
+    We often try to take what varies in a system and encapsulate it.
+    Pattern provide a shared language that can maximize the value of your communication with other developers.
+

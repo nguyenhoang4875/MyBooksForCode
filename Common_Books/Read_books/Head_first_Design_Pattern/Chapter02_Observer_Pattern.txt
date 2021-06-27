@@ -1,0 +1,93 @@
+                Chapter 02: Observer Pattern
+
+Stretch Goal
+    Expandability
+Taking a first, misguided implementation of the Weather Station
+
+Sharpen your pencil: A, B, C, E
+What’s wrong with our implementation anyway?
+Meet the Observer Pattern
+You know how newspaper or magazine subscriptions work:
+    A newspaper publisher goes into business and begins publishing newspapers
+    You subscribe to a particular publisher, and every time there’s a new edition it gets delivered to you. As long as you remain a subscriber, you get new newspapers.
+    You unsubscribe when you don’t want papers anymore, and they stop being delivered.
+    While the publisher remains in business, people, hotels, airlines, and other businesses constantly subscribe and unsubscribe to the newspaper.
+
+Publishers + Subscribers = Observer Pattern
+If you understand newspaper subscriptions, you pretty much understand the Observer Pattern, only we call the publisher the SUBJECT and the subscribers the OBSERVERS.
+
+A day in the life of the Observer Pattern
+
+The Observer Pattern defined
+The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state,
+ all of its dependents are notified and updated automatically.
+
+The Observer Pattern defines a one-to-many relationship between a set of objects.
+When the state of one object changes, all of its dependents are notified.
+
+The Observer Pattern: the Class Diagram
+
+So there is a relationship between the ONE Subject to the MANY Observers
+Q: I’ve also heard of a Publish- Subscribe Pattern. Is that just another name for the Observer Pattern?
+A: No, although they are related.
+ The Publish-Subscribe pattern is a more complex pattern that allows subscribers to express interest in different types of messages and further separates publishers from subscribers.
+ It is often used in middleware systems.
+
+ loosely coupled
+
+The Power of Loose Coupling
+First, the only thing the subject knows about an observer is that it implements a certain interface (the Observer interface)
+We can add new observers at any time.
+We never need to modify the subject to add new types of observers.
+We can reuse subjects or observers independently of each other.
+Changes to either the subject or an observer will not affect the other.
+
+Loosely coupled designs allow us to build flexible OO
+systems that can handle change because they minimize
+the interdependency between objects.
+
+Implementing the Weather Station
+Implementing the Subject interface in WeatherData
+
+Power up the Weather Station
+First, let’s create a test harness.
+
+Fireside Charts
+Subject and Observer spar over the right way to get state information to the Observer.
+
+Looking for the Observer Pattern in the Wild
+
+Coding the life-changing application
+
+revisiting push and pull
+
+Meanwhile, back at Weather-O-Rama
+For the Subject to send notifications...
+For an Observer to receive notifications...
+
+Bullet Point:
+ The Observer Pattern defines a one-to-many relationship between objects.
+ Subjects update Observers using a common interface.
+ Observers of any concrete type can participate in the pattern as long as they implement the Observer interface.
+ Observers are loosely coupled in that the Subject knows nothing about them, other than that they implement the Observer interface.
+ You can push or pull data from the Subject when using the pattern (pull is considered more “correct”).
+ Swing makes heavy use of the Observer Pattern, as do many GUI frameworks.
+ You’ll also find the pattern in many other places, including RxJava, JavaBeans, and RMI, as well as in other language
+frameworks, like Cocoa, Swift, and JavaScript events.
+ The Observer Pattern is related to the Publish/Subscribe Pattern, which is for more complex
+situations with multiple Subjects and/or multiple message types.
+ The Observer Pattern is a commonly used pattern, and we’ll see it again when we learn about Model-View-Controller.
+
+Design Principle Challenge Solution
+        The thing that varies in the Observer Pattern is the state of the Subject and the number and
+    types of Observers. With this pattern, you can vary the objects that are dependent on the state
+    of the Subject, without having to change that Subject. That’s called planning ahead
+
+        Both the Subject and Observers use interfaces. The Subject keeps track of objects implementing
+    the Observer interface, while the Observers register with, and get notified by, the Subject
+    interface. As we’ve seen, this keeps things nice and loosely coupled.
+
+        The Observer Pattern uses composition to compose any number of Observers with their Subject.
+    These relationships aren’t set up by some kind of inheritance hierarchy. No, they are set up at runtime by composition!
+
+A subject is similiar to a publisher

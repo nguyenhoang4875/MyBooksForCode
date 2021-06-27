@@ -1,0 +1,62 @@
+
+                                    Chapter 08: The Template Method Pattern
+                                               Encapsulating Algorithms 
+
+It’s time for some more caffeine
+
+Meet the Template Method
+    The Template Method defines the steps of an algorithm and allows
+    subclasses to provide the implementation for one or more steps.
+
+Template Method Pattern defined
+    The Template Method Pattern defines the skeleton of an algorithm in a method, deferring some steps to
+    subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.
+
+Hooked on Template Method...
+Using the hook
+
+The Hollywood Principle
+    Don’t call us, we’ll call you.
+
+    Pattern            Description
+Template Method     Subclasses decide how to implement steps in an algorithm
+Strategy            Encapsulate interchangeable behaviors and use delegation to decide which behavior to use
+Factory Method      Subclasses decide with concrete classes to instantiate.
+
+Template Methods in the Wild
+    We’ve got some ducks to sort...
+    Swingin’ with Frames
+    Custom Lists with AbstractList
+
+Tools for your Design Toolbox 
+OOP principles:
+    Encapsulate what varies.
+    Favor composition over inheritance.
+    Program to interface, not implementations.
+    Strive for loosely coupled designs between objects that interact.
+    Classes should be open for extension but close for modification.
+    Depend on abstraction. Do not depend on concrete classes.
+    Talk only to your friends.
+    Don't call us, We'll call you.
+
+Template Method:
+    Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
+    Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+Bullet points:
+    A template method defines the steps of an algorithm, deferring to subclasses for the implementation.
+    The Template Method Pattern gives us an important technique for code reuse.
+    The Template Method's abstract class may define concrete methods, abstract methods, and hooks.
+    Abstract methods are implemented by subclasses.
+    Hooks are methods that do nothing or default behavior in the abstract class, but may be overridden in the subclass.
+    To prevent subclasses from changing the algorithm in the Template Method, declare template method as final.
+    The Hollywood Principle guides us to put decision making in high-level modules that can decide how and when to call low-level modules.
+    You'll see lots of uses of the Template Method Pattern in real-world code, but (as with any pattern) don't expect it all be designed "by the hook".
+    The strategy and TEmplate Method Patterns both encapsulate algorithms, the first by composition and the other by inheritance.
+    Factory Method is specialization of Template Method.
+    
+
+
+
+
+

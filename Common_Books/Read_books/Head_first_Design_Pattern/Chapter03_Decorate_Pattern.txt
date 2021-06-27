@@ -1,0 +1,54 @@
+            Chapter 03: the Decorator Pattern (Decorating Objects)
+        
+Welcome to Starbuzz Coffee
+The Open-Closed Principle
+We're on to one of the most important design principles:
+    Design Principle: Classsed should be open for extensioin, but closed for modification.
+
+Meet the Decorator Pattern
+    Start with a DarkRoast object.
+    Decorate it with a Mocha object.
+    Decorate it with a Whip object.
+    Call the cost() method and rely on delegation to add up the condiment costs.
+
+Constructing a drink order with Decorators
+    We start with our DarkRoast object.
+    The customer wants Mocha, so we create a Mocha object and wrap it around the DarkRoast.
+    The customer also wants Whip, so we create a Whip decorator and wrap Mocha with it.
+    Now it’s time to compute the cost for the customer. We do this by calling cost() on the outermost decorator, Whip, and Whip is going to
+    delegate computing the cost to the objects it decorates. And so on. Let’s see how this works:
+
+Ok ay, here’s what we know about Decorators, so far...
+    Decorators have the same supertype as the objects they decorate.
+    You can use one or more decorators to wrap an object.
+    Given that the decorator has the same supertype as the object it decorates, we can
+    pass around a decorated object in place of the original (wrapped) object.
+    The decorator adds its own behavior before and/or after delegating to the object it
+    decorates to do the rest of the job.
+    Objects can be decorated at any time, so we can decorate objects dynamically at
+    runtime with as many decorators as we like.
+
+Real-World Decorators: Java I/O
+Decorating the java.io classes
+
+Tools for your Design Toolbox:
+OO Priciples:
+    Classes should be open for extension but closed for modification.
+Decorator - Attach additional responsibilities to an object dy namically.
+Decorator provide a flexible alternative to subclassing for extending functionality.
+
+Bullet Points:
+    Inheritance is one form of extension, but not  necessarily the best way to achieve flexibility in our designs.
+    In our designs we should allow behavior to extended without the need to modifi existing code.
+    Composition and delegation can often be used to add new behaviors at runtime.
+    The Decorator Pattern provides an alternative to subclassing for extending behavior
+    The Decorator Pattern involves a set of decorator classes that are used to wrap concrete components
+    Decorator classes mirror the type of the components they decorate.
+    (In fact, they are the same type as the components they decorate,
+    either through inheritance or interface implemenation.)
+    Decorators change the behavior of their components by adding new functionality before and/or after (or even in place of) method calls to the component.
+    You can wrap a component with any number of decorators.
+    Decorators are typically transparent to the client of the component - that is, unless the client is relying on the component's concrete type.
+    Decorators can result in many small objects in our design, and overuse can be complex.
+
+

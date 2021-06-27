@@ -1,0 +1,99 @@
+
+                                    Chapter 07: The Adapter and Facade Patterns
+                                                Being Adaptive 
+
+Adapters all around us
+You’ll have no trouble understanding what an OO adapter is
+because the real world is full of them. How’s this for an example:
+Have you ever needed to use a US-made laptop in Great Britain?
+Then you’ve probably needed an AC power adapter...
+
+Object-oriented adapters
+
+If it walks like a duck and quacks like a duck,
+then it must might be a duck turkey wrapped
+with a duck adapter...
+
+The Adapter Pattern explained
+Here’s how the Client uses the Adapter
+    The client makes a request to the adapter by calling a method on it using the target interface.
+    The adapter translates the request into one or more calls on the adaptee using the adaptee interface.
+    The client receives the results of the call and never knows there is an adapter doing the translation.
+
+Adapter Pattern defined
+    The Adapter Pattern converts the interface of a class into another interface the clients expect. Adapter lets
+    classes work together that couldn’t otherwise because of incompatible interfaces.
+    
+Object and class adapters
+
+Real-world adapters
+    Enumerators
+    Iterators
+Using Enumerators with code that expects Iterators
+Adapting an Enumeration to an Iterator
+
+And now for something different...
+Pattern         Intent
+Decorator   Doesn't alter the interface but adds responsibility.
+Adapter     Converts one interface to another.
+Facade      Makes an interface simple
+
+Home Sweet Home Theater
+
+Lights, Camera, Facade!
+
+Facade versus adapter
+    A facade not only simplifies an interface, it decouples a client from a subsystem of components.
+    Facades and adapters may wrap multiple classes, but a facade's intent is to simplify, while an adapter's is to convert the interface to something different.
+
+Constructing your home theater facade
+
+Facade Pattern defined
+    The Facade Pattern provides a unified interface to a
+    set of interfaces in a subsystem. Facade defines a higher-
+    level interface that makes the subsystem easier to use.
+
+The Principle of Least Knowledge
+Design Principle:
+    Principle of Least Knowledge: talk only to your immediate friends
+
+How NOT to Win Friends and Influence Objects
+    The object itself
+    Objects passed in as a parameter to the method
+    Any object the method creates or instantiates
+    Any components of the object
+
+Keeping your method calls in bounds...
+
+Tools for your Design Toolbox
+OO Principles:
+    Encapsulate what varies.
+    Favor composition over inheritance.
+    Program to interfaces, not implementations.
+    Strive for loosely coupled designs between objects that interact.
+    Classes should be open for extension but closed for modification.
+    Depend on abstractions. Do not depend on concrete classes.
+    Talk only to your friends.
+
+OO Patterns
+Adapter
+    Converts the interface of a class into another interface clients expect.
+    Lets classes work together that couldn't otherwise because of incompatible interfaces.
+facade:
+    Provides unified interface to a set of interface in a subsystem. 
+    Facade defines a higher-level interface that make the subsystem easier to use.
+
+Bullet Points:
+    When you need to use an existing class and its interface is not the one you need, use an adapter.
+    When you need to simplify and unify a large interface or complex set of interfaces, use a facade.
+    An adapter changes an interface into one a client expects.
+    A facade decouples a client from a complex subsystem.
+    Implementing an adapter may require little work or a great deal of work depending on the size complexity of the target interface.
+    Implementing a facade requires that we compose the facade with its subsystem and use delegation to perform the work of the facade.
+    There are two forms of the Adapter Pattern: object and class adapters. Class adapters require multiple inheritance.
+    You can implement more than one facade for a subsystem.
+    An adapter wraps an object to change its interface, a decorator wraps  an object to add new behaviors and responsibilities,
+    and a facade "wraps" a set of objects to simplify.
+    
+
+

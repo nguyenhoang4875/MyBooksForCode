@@ -1,0 +1,95 @@
+                                    Chapter 06: The Command Pattern
+                                       Encapsulating Invocation 
+ 
+Free hardware! Let’s check out the Remote Control...
+Taking a look at the vendor classes
+Command pattern might work
+Meanwhile, back at the Diner..., or , A brief introduction to the Command Pattern
+Okay, we all know how the Diner operates:
+   1. You, the Customer, give the Waitress your Order
+   2. The Waitress takes the Order, places it on the order counter, and says "Order up!"
+   3. The Short-Order Cook prepare your meal from the Order.
+
+Let’s study the interaction in a little more detail...
+   ...and given this Diner is in Objectville, let’s think about the object and method calls involved, too!
+
+The Objectville Diner roles and responsibilities
+   An Order Slip encapsulates a request to prepare a meal.
+      Think of the Order Slip as an object that acts as a request to prepare a meal.
+
+The Waitress’s job is to take Order Slips and invoke the orderUp() method on them.
+   The Waitress has it easy: take an Order from the Customer, continue helping customers until she makes it back to the
+   order counter, and then invoke the orderUp() method to have the meal prepared
+
+The Short-Order Cook has the knowledge required to prepare the meal.
+   The Short-Order Cook is the object that really knows how to prepare meals.
+
+The diner is a model for command pattern
+
+Loading the Invoker
+   1. The client creates a command object.
+   2. The client does a setCommand() to store the command object in the invoker.
+   3. Later ... the client asks the invoker to execute the command. Note: as you'll see later in the chappter, once the command 
+   is loaded into the invoker, it may be used and discarded, or it may remain and be used many times.
+
+  Diner             Command Pattern
+Waitress              Invoker
+Short-Order Cook      Receiver    
+orderUp()             execute() 
+Order                 Command
+Customer              client
+takeOrder()           setCommand()
+
+Our first command object
+Implementing the Command interface
+   Implementing a command to turn a light on
+Using the command object
+
+The Command Pattern defined
+   The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects
+   with different requests, queue or log requests, and support undoable operations.
+
+The Command Pattern defined: the class diagram
+
+Assigning Commands to slots
+   Implementing the Remote Control
+   Implementing the Commands
+
+Putting the Remote Control through its paces
+
+Time to write that documentation...
+The updated code, using lambda expressions:
+
+Time to QA that Undo button!
+Using state to implement Undo
+   Adding Undo to the Ceiling Fan commands
+
+Every remote needs a Party Mode!
+
+More uses of the Command Pattern: queuing requests
+More uses of the Command Pattern: logging requests
+
+Command Pattern in the Real World
+
+Tools for your Design Toolbox
+OO Principles
+   Encapsulate what varies.
+   Favor composition over inheritance.
+   Program to interface, not implementations.
+   Strive for loosely couple designs between objects that interact.
+   Classes should be open for extension but closed for modification.
+   Depend on abstractions. Do not depend on concrete classes.
+
+OO Patterns
+   Command: Encapsulates a request as an object, thereby letting y ou parameterize clients with different request, queue or log requests,
+   and support undoable operations.
+
+Bullet Points:
+   The Command Pattern decouples an object making a request from the one that knows how to perform it.
+   A Command object is at the center of this decoupling and encapsulates a receiver with an action (or set of actions)
+   An invoker makes a request of a Command object by calling its execute() method, which invokers those actions on the receiver.
+   Invokers can be parameterized with Commands, even dynamically at runtime.
+   Commands may support undo by implementing an undo() method that restores the object to its previous state before the execute() method was last called
+   MarcoCommands are a simple extension of Command Pattern that allow multiple commands to be invoked. Likewise, MacroCommands can easily support undo()
+   In practice, it's not uncommon for "smart" Command object to implement the request themselves rather than delegating to a receiver.
+   Commands may also be used to implement logging and transactional system.

@@ -1,0 +1,66 @@
+
+                                    Chapter 10: The State Pattern
+                                      The State of Things
+
+Java Breakers
+Cubicle Conversation
+State machines 101
+Writing the code
+The new design
+    1. First, we’re going to define a State interface that contains a method for every action in the Gumball Machine.
+    2. Then we’re going to implement a State class for every state of the machine. These classes will be
+    responsible for the behavior of the machine when it is in the corresponding state.
+    3. Finally, we’re going to get rid of all of our conditional code and instead delegate the work to the State class.
+
+Defining the State interfaces and classes
+Implementing our State classes
+
+Reworking the Gumball Machine
+Let’s take a look at what we’ve done so far...
+    1. Localized the behavior of each state into its own class.
+    2. Removed all the troublesome if statements that would have been difficult to maintain.
+    3. Closed each state for modification, and yet left the Gumball Machine open to extension
+     by adding new state classes (and we’ll do this in a second).
+    4. Created a code base and class structure that maps much more closely to the Mighty
+     Gumball diagram and is easier to read and understand. 
+
+The State Pattern defined
+    The State Pattern allows an object to alter its behavior when its internal state changes.
+     The object will appear to change its class.
+
+Finishing the game
+Sanity check...
+
+Fireside Chats: Tonight's talk A Strategy and State Pattern Reunion
+
+Pattern             Description
+State           Encapsulate state-based behavior and delegate behavior to the current state.
+Strategy        Encapsulate interchangeable behaviors and use delegation to decide which behavior to use.
+Template Method Subclasses decide how to implement steps in an algorithm.
+
+Tools for your Design Toolbox
+OO Principles
+    Encapsulate what varies.
+    Favor composition over inheritance.
+    Program to interfaces, not implementation.
+    Strive for loosely coupled designs between objects that interact.
+    Classes should be open for extension but closed for modification.
+    Depend on abstractions. Do not depend on concrete classes.
+    Only talk to your friends.
+    Don't call us, We'll call you.
+    A class should have only reason to change.
+
+OO Patterns
+    State - Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+
+Bullet Points
+    The State Pattern allows an object to have many different behaviors that are based on its internal state. 
+    Unlike a procedural state machine, the State Pattern represents each state as a full-blown class.
+    The Context gets its behavior by delegating to the current state object it is composed with.
+    By encapsulating each state into a class, we localize any changes that will need to be made.
+    The State and Strategy Patterns have the same class diagram, but differ in intent.
+    The Strategy Pattern typically configures Context classes with a behavior or algorithm.
+    The State Pattern allow a Context to change its behavior as the state of Context changes.
+    State transitions can be controlled by the State classes or by the Context classes.
+    Using the State Pattern will typically result in a greater number of classes in your design.
+    State classes may be shared among Context instances.
